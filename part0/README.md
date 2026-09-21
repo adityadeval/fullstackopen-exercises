@@ -65,7 +65,35 @@ Note right of browser: "xhttp.onreadystatechange()" in the "main.js" file fires,
 
 A user opening the single page app version at `https://studies.cs.helsinki.fi/exampleapp/spa`.
 
-*Diagram to be added.*
+```mermaid
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+activate server
+server-->>browser: HTML file
+deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+activate server
+server-->>browser: "main.css" file
+deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+activate server
+server-->>browser: "spa.js" file
+deactivate server
+
+Note right of browser: Browser starts executing the "spa.js" file which contains a GET request for data.json
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+activate server
+server-->>browser: "data.json" file
+deactivate server
+
+Note right of browser: "onreadystatechange()" fires (after HTML is parsed). <br> It calls redrawNotes() which builds a #lt;ul#gt; list from data.json and replaces content of #lt;div id="notes"#gt; with it. <br> This makes all notes to appear on the page.
+```
 
 ### 0.6: New note in Single page app diagram
 
