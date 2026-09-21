@@ -99,4 +99,15 @@ Note right of browser: "onreadystatechange()" fires (after HTML is parsed). <br>
 
 A user creating a new note in the single page app version.
 
-*Diagram to be added.*
+```mermaid
+sequenceDiagram
+participant browser
+participant server
+
+Note right of browser: After user types a note and clicks 'Save' button: <br> Handler of 'Save' button (form.onsubmit) creates a new Note object {content, date} <br> And then adds it to notes[] array <br> redrawNotes() generates #lt;ul#gt; containing all notes from notes[], replaces content of #lt;div id="notes"#gt; with it
+Note right of browser: sendToServer() is called which sends JSONified version of note (typed by user) to server using POST
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa <br> (This request sends a payload {content, date}. 'content' is the note user typed).
+activate server
+server-->>browser: JSON response {"message":"note created"}
+deactivate server
+```
