@@ -14,8 +14,8 @@ const App = () => {
   return (
     <div>
       <Header course={course}/>
-      <Content p1={part1} e1={exercises1} p2={part2} e2={exercises2} p3={part3} e3={exercises3}/>
-      <Total e1={exercises1} e2={exercises2} e3={exercises3}/>
+      <Content from_app_p1={part1} from_app_e1={exercises1} from_app_p2={part2} from_app_e2={exercises2} from_app_p3={part3} from_app_e3={exercises3}/>
+      <Total from_app_e1={exercises1} from_app_e2={exercises2} from_app_e3={exercises3}/>
     </div>
   )
 }

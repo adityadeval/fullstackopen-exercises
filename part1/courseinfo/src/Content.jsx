@@ -1,15 +1,11 @@
+import Part from './Part.jsx'
+
 const Content = (props) => {
     return(
         <>
-            <p>
-                {props.p1} {props.e1}
-            </p>
-            <p>
-                {props.p2} {props.e2}
-            </p>
-            <p>
-                {props.p3} {props.e3}
-            </p>
+            <Part from_content_p={props.from_app_p1} from_content_e={props.from_app_e1}/>
+            <Part from_content_p={props.from_app_p2} from_content_e={props.from_app_e2}/>
+            <Part from_content_p={props.from_app_p3} from_content_e={props.from_app_e3}/>
         </>
     )
 }
